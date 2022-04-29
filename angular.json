@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "3-dshop": "apps/3-dshop",
+    "3-dshop-e2e": "apps/3-dshop-e2e"
+  }
+}
