@@ -1,88 +1,88 @@
 {
-  "projectType": "application",
-  "root": "apps/3-dshop",
-  "sourceRoot": "apps/3-dshop/src",
-  "prefix": "nick",
-  "targets": {
-    "build": {
-      "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/apps/3-dshop",
-        "index": "apps/3-dshop/src/index.html",
-        "main": "apps/3-dshop/src/main.ts",
-        "polyfills": "apps/3-dshop/src/polyfills.ts",
-        "tsConfig": "apps/3-dshop/tsconfig.app.json",
-        "inlineStyleLanguage": "scss",
-        "assets": ["apps/3-dshop/src/favicon.ico", "apps/3-dshop/src/assets"],
-        "styles": ["apps/3-dshop/src/styles.scss"],
-        "scripts": []
-      },
-      "configurations": {
-        "production": {
-          "budgets": [
-            {
-              "type": "initial",
-              "maximumWarning": "500kb",
-              "maximumError": "1mb"
+    "projectType": "application",
+    "root": "apps/3-dshop",
+    "sourceRoot": "apps/3-dshop/src",
+    "prefix": "nick",
+    "targets": {
+        "build": {
+            "executor": "@angular-devkit/build-angular:browser",
+            "outputs": ["{options.outputPath}"],
+            "options": {
+                "outputPath": "dist/apps/3-dshop",
+                "index": "apps/3-dshop/src/index.html",
+                "main": "apps/3-dshop/src/main.ts",
+                "polyfills": "apps/3-dshop/src/polyfills.ts",
+                "tsConfig": "apps/3-dshop/tsconfig.app.json",
+                "inlineStyleLanguage": "scss",
+                "assets": ["apps/3-dshop/src/favicon.ico", "apps/3-dshop/src/assets"],
+                "styles": ["apps/3-dshop/src/styles.scss"],
+                "scripts": []
             },
-            {
-              "type": "anyComponentStyle",
-              "maximumWarning": "2kb",
-              "maximumError": "4kb"
-            }
-          ],
-          "fileReplacements": [
-            {
-              "replace": "apps/3-dshop/src/environments/environment.ts",
-              "with": "apps/3-dshop/src/environments/environment.prod.ts"
-            }
-          ],
-          "outputHashing": "all"
+            "configurations": {
+                "production": {
+                    "budgets": [
+                        {
+                            "type": "initial",
+                            "maximumWarning": "500kb",
+                            "maximumError": "1mb"
+                        },
+                        {
+                            "type": "anyComponentStyle",
+                            "maximumWarning": "2kb",
+                            "maximumError": "4kb"
+                        }
+                    ],
+                    "fileReplacements": [
+                        {
+                            "replace": "apps/3-dshop/src/environments/environment.ts",
+                            "with": "apps/3-dshop/src/environments/environment.prod.ts"
+                        }
+                    ],
+                    "outputHashing": "all"
+                },
+                "development": {
+                    "buildOptimizer": false,
+                    "optimization": false,
+                    "vendorChunk": true,
+                    "extractLicenses": false,
+                    "sourceMap": true,
+                    "namedChunks": true
+                }
+            },
+            "defaultConfiguration": "production"
         },
-        "development": {
-          "buildOptimizer": false,
-          "optimization": false,
-          "vendorChunk": true,
-          "extractLicenses": false,
-          "sourceMap": true,
-          "namedChunks": true
-        }
-      },
-      "defaultConfiguration": "production"
-    },
-    "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
-      "configurations": {
-        "production": {
-          "browserTarget": "3-dshop:build:production"
+        "serve": {
+            "executor": "@angular-devkit/build-angular:dev-server",
+            "configurations": {
+                "production": {
+                    "browserTarget": "3-dshop:build:production"
+                },
+                "development": {
+                    "browserTarget": "3-dshop:build:development"
+                }
+            },
+            "defaultConfiguration": "development"
         },
-        "development": {
-          "browserTarget": "3-dshop:build:development"
+        "extract-i18n": {
+            "executor": "@angular-devkit/build-angular:extract-i18n",
+            "options": {
+                "browserTarget": "3-dshop:build"
+            }
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "options": {
+                "lintFilePatterns": ["apps/3-dshop/**/*.ts", "apps/3-dshop/**/*.html"]
+            }
+        },
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "outputs": ["coverage/apps/3-dshop"],
+            "options": {
+                "jestConfig": "apps/3-dshop/jest.config.ts",
+                "passWithNoTests": true
+            }
         }
-      },
-      "defaultConfiguration": "development"
     },
-    "extract-i18n": {
-      "executor": "@angular-devkit/build-angular:extract-i18n",
-      "options": {
-        "browserTarget": "3-dshop:build"
-      }
-    },
-    "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": ["apps/3-dshop/**/*.ts", "apps/3-dshop/**/*.html"]
-      }
-    },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/3-dshop"],
-      "options": {
-        "jestConfig": "apps/3-dshop/jest.config.ts",
-        "passWithNoTests": true
-      }
-    }
-  },
-  "tags": []
+    "tags": []
 }

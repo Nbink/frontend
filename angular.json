@@ -1,7 +1,13 @@
 {
-  "version": 2,
-  "projects": {
-    "3-dshop": "apps/3-dshop",
-    "3-dshop-e2e": "apps/3-dshop-e2e"
-  }
+    "version": 2,
+    "projects": {
+        "3-dshop": "apps/3-dshop",
+        "3-dshop-e2e": "apps/3-dshop-e2e",
+        "admin": "apps/admin",
+        "admin-e2e": "apps/admin-e2e",
+        "orders": "libs/orders",
+        "products": "libs/products",
+        "ui": "libs/ui",
+        "users": "libs/users"
+    }
 }
